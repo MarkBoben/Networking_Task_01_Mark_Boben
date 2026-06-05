@@ -5,13 +5,12 @@
 
 ## Part A: Network Information
 
-> ⚠️ **Note:** The values below are placeholder examples. Replace them with your actual system values obtained by running `ipconfig` (Windows) or `ip addr` (Linux).
 
 | # | Detail | Value (Example) |
 |---|--------|-----------------|
 | 1 | Hostname (Device Name) | `DESKTOP-86E9DBM` |
 | 2 | IPv4 Address | `192.168.1.8` |
-| 3 | MAC Address | `7C-70-DB-D0-F9-03` |
+| 3 | MAC Address | `7C-70-DB-D0-xx-xx` |
 | 4 | Default Gateway | `192.168.1.1` |
 | 5 | DNS Server | `192.168.1.1` (Google DNS) |
 
