@@ -1,0 +1,22 @@
+1)What is an IP Address? (Internet Protocol)
+Ans. Think of it like your home address, but for your device on a network. It tells other devices where to send data. Ex. 192.168.1.9
+
+2)What is a MAC Address? (Media Access Control)
+Ans.A permanent, unique ID created into your network card by the manufacturer. Unlike an IP address, it never changes. Ex. 00:1b:63:84:45:e6
+
+3)What is a Default Gateway? 
+Ans.It is known as the ”exit point”or "front door" for your device when you need to connect with another network. When you want to reach the internet, your data first goes to the gateway (usually your router).
+
+4)What is DNS? (Domain Name System)
+Ans.A phonebook for the internet. Instead of remembering that Google is at 142.250.74.46, you just type google.com and DNS translates it to the right IP address.
+
+5)Difference between Public IP and Private IP ?
+Ans.* Public IP (Internet Address)
+- Given by your Internet Service Provider (ISP) .
+- Used when you connect to websites like Google, YouTube, etc. 
+- It is visible to the outside world.
+
+ * Private IP(Local Network Address)
+- Assigned by your router 
+- Used only inside your home/office WiFi 
+- Not visible on the internet
