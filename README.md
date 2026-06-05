@@ -9,11 +9,11 @@
 
 | # | Detail | Value (Example) |
 |---|--------|-----------------|
-| 1 | Hostname (Device Name) | `MARK-LAPTOP` |
-| 2 | IPv4 Address | `192.168.1.105` |
-| 3 | MAC Address | `A4-C3-F0-85-7D-2B` |
+| 1 | Hostname (Device Name) | `DESKTOP-86E9DBM` |
+| 2 | IPv4 Address | `192.168.1.8` |
+| 3 | MAC Address | `7C-70-DB-D0-F9-03` |
 | 4 | Default Gateway | `192.168.1.1` |
-| 5 | DNS Server | `8.8.8.8` (Google DNS) |
+| 5 | DNS Server | `192.168.1.1` (Google DNS) |
 
 **How to find these on Windows:**
 ```
@@ -33,7 +33,7 @@ nmcli dev show
 ## Part B: Basic Networking Concepts
 
 ### What is an IP Address?
-An IP (Internet Protocol) address is a unique numerical label assigned to every device connected to a network. It works like a home address — just as a postman uses your address to deliver letters, the network uses IP addresses to route data to the correct device. Example: `192.168.1.105`
+An IP (Internet Protocol) address is a unique numerical label assigned to every device connected to a network. It works like a home address — just as a postman uses your address to deliver letters, the network uses IP addresses to route data to the correct device. Example: `192.168.1.8`
 
 ### What is a MAC Address?
 A MAC (Media Access Control) address is a hardware identifier permanently assigned to a device's network interface card (NIC) by the manufacturer. Unlike an IP address (which can change), a MAC address is fixed. It looks like: `A4:C3:F0:85:7D:2B`. It is used for communication within a local network (LAN).
@@ -83,8 +83,8 @@ Think of it this way: your Private IP is your room number inside a building, whi
                         │
          ┌──────────────▼──────────────┐
          │         YOUR DEVICE         │
-         │   Hostname: MARK-LAPTOP     │
-         │   Private IP: 192.168.1.105 │
+         │   Hostname: DESKTOP-86E9DBM     │
+         │   Private IP: 192.168.1.8 │
          │   MAC: A4:C3:F0:85:7D:2B    │
          └─────────────────────────────┘
 ```
@@ -114,12 +114,20 @@ traceroute google.com
 ### Answers
 
 **1. Was the ping successful?**
-Yes, the ping to `google.com` was successful. The command sent 4 ICMP packets and received 4 replies with 0% packet loss, confirming internet connectivity is working.
+Yes, the ping to `google.com` was successful. All 4 packets were sent and received with **0% packet loss**. The response came from Google's IP `142.250.205.14` with a consistent round-trip time of **22ms** (min=22ms, max=22ms, avg=22ms), confirming stable internet connectivity.
 
 **2. How many hops were shown?**
-The `tracert`/`traceroute` to `google.com` showed approximately **12–15 hops**, starting from the local router (`192.168.1.1`) and passing through multiple ISP nodes before reaching Google's servers.
-
-> Replace this with the actual number from your tracert output.
+The `tracert` to `google.com` showed **8 hops** in total:
+| Hop | Address | Note |
+|-----|---------|------|
+| 1 | 192.168.1.1 | Local router (Default Gateway) |
+| 2 | 111.92.105.1 (asianet.co.in) | ISP — Asianet Broadband |
+| 3 | * * * | Request timed out (firewall blocked) |
+| 4 | 202.88.230.130 (asianet.co.in) | ISP backbone node |
+| 5 | 142.250.173.164 | Google network |
+| 6 | 142.251.227.215 | Google network |
+| 7 | 209.85.248.211 | Google network |
+| 8 | 142.250.205.14 (pnmaaa-bc-in-f14.1e100.net) | Google destination server |
 
 **3. What is the purpose of traceroute?**
 Traceroute (`tracert` on Windows, `traceroute` on Linux) maps the path data takes from your device to a destination across the internet. It shows every router ("hop") the data passes through, along with the time taken at each hop. It is very useful for diagnosing network slowdowns or finding where a connection is failing.
